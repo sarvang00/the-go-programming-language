@@ -2,6 +2,7 @@
 
 - [the-go-programming-language](#the-go-programming-language)
   - [Important go commands](#important-go-commands)
+  - [Notes](#notes)
 
 Let's try out the Go programming language
 
@@ -12,3 +13,8 @@ Let's try out the Go programming language
    ```go build```
 3. **Build** the code (foreign OS): Go to the code directory and run
    ```GOOS=<foreign os name> GOARCH=<platform name> go build```
+
+## Notes
+1. **Slices** can be thought of like arrays without limits.
+2. A **map** is a kev-value pair storage for values.
+3. IO processes are efficiently processed by the **bufio** package.
