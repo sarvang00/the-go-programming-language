@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 )
@@ -14,11 +14,8 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		b, err := ioutil.ReadAll(resp.Body)
-		resp.Body.Close()
-		if err != nil {
+		if _, err := io.Copy(os.Stdout, resp.Body); err != nil {
 			fmt.Println(err)
 		}
-		fmt.Printf("%s", b)
 	}
 }
