@@ -21,5 +21,6 @@ func main() {
 		if _, err := io.Copy(os.Stdout, resp.Body); err != nil {
 			fmt.Println(err)
 		}
+		fmt.Println("Page status: ", resp.Status)
 	}
 }
