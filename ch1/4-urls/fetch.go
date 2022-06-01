@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
+	global_start := time.Now()
 	for _, url := range os.Args[1:] {
-		if !strings.HasPrefix(url, "http://") {
+		if !(strings.HasPrefix(url, "http://") || strings.HasPrefix(url, "https://")) {
 			url = "http://" + url
 		}
 		start := time.Now()
@@ -29,5 +30,6 @@ func main() {
 		fmt.Println("Page status: ", resp.Status)
 		fmt.Println("Processing time: ", secs)
 	}
-
+	global_secs := time.Since(global_start).Seconds()
+	fmt.Println("Total processing time: ", global_secs)
 }
