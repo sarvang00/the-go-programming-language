@@ -13,6 +13,7 @@ var n = flag.Bool("n", false, "omit trailing newline")
 var sep = flag.String("s", " ", "separator")
 
 func main() {
+	// first, parse for flags
 	flag.Parse()
 	// Format the string as per the value of seperator flag
 	fmt.Print(strings.Join(flag.Args(), *sep))
