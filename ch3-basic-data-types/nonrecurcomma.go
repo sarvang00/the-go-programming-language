@@ -19,12 +19,15 @@ func main() {
 func noRecurComma(s string) string {
 	var buf bytes.Buffer
 	if len(s) > 3 {
-		for i := 0; i < len(s)-1; i++ {
-			if i%3 == 0 && i != 0 && i <= len(s)-3 {
-				buf.WriteByte(',')
+		for i := 0; i < len(s); i++ {
+			if i%3 == 0 && i > 0 {
+				buf.WriteString(",")
 			}
+			// buf.WriteString(strconv.Itoa(i))
 			buf.WriteString(s[i : i+1])
 		}
+	} else {
+		buf.WriteString(s)
 	}
 	return buf.String()
 }
