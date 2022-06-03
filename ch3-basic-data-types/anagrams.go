@@ -18,6 +18,18 @@ func countChars(str string) map[string]int {
 	return hash
 }
 
+func compareMap(m1 map[string]int, m2 map[string]int) bool {
+	// bool var for storing result
+	var res bool = true
+
+	for m1k, m1v := range m1 {
+		// the result of mathcing op will reflect to res
+		// will remain true only if all values are matching
+		res = (m2[m1k] == m1v) && res
+	}
+	return res
+}
+
 func areAnagrams(s1 string, s2 string) bool {
 	if len(s1) == len(s2) {
 		if s1 == s2 {
@@ -25,13 +37,7 @@ func areAnagrams(s1 string, s2 string) bool {
 			return false
 		}
 		// return reflect.DeepEqual(countChars(s1), countChars(s2))
-		var res bool = true
-		s1_ana := countChars(s1)
-		s2_ana := countChars(s2)
-		for s1k, s1v := range s1_ana {
-			res = (s2_ana[s1k] == s1v) && res
-		}
-		return res
+		compareMap(countChars(s1), countChars(s2))
 	}
 	return false
 }
