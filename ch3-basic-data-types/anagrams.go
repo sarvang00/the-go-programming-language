@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 )
 
 func countChars(str string) map[string]int {
@@ -25,7 +24,14 @@ func areAnagrams(s1 string, s2 string) bool {
 			fmt.Println("They are the same!")
 			return false
 		}
-		return reflect.DeepEqual(countChars(s1), countChars(s2))
+		// return reflect.DeepEqual(countChars(s1), countChars(s2))
+		var res bool = true
+		s1_ana := countChars(s1)
+		s2_ana := countChars(s2)
+		for s1k, s1v := range s1_ana {
+			res = (s2_ana[s1k] == s1v) && res
+		}
+		return res
 	}
 	return false
 }
