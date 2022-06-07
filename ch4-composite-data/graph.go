@@ -19,6 +19,7 @@ func hasEdge(from, to string) bool {
 
 func main() {
 	addEdge("a", "b")
+	addEdge("b", "c")
 	fmt.Println(graph)
-	fmt.Println(hasEdge("c", "b"))
+	fmt.Println(hasEdge("a", "b"))
 }
