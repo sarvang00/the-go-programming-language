@@ -18,3 +18,5 @@ Let's try out the Go programming language
 1. **Slices** can be thought of like arrays without limits.
 2. A **map** is a kev-value pair storage for values.
 3. IO processes are efficiently processed by the **bufio** package.
+
+While the content here is quite good & detailed, I am deprecating it since I find the material a bit old/ obsolete.
